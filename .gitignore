@@ -1,0 +1,8 @@
+*.vcxproj
+*.sln
+
+\bin
+\bin-int
+
+*.user
+.vs
