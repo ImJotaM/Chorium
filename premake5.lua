@@ -16,6 +16,7 @@ workspace (ProjectName)
     filter "configurations:Release"
         defines  { "NDEBUG" }
         optimize "On"
+        linkoptions { "/ENTRY:mainCRTStartup" }
     filter {}
 
     filter "platforms:x64"
@@ -25,8 +26,17 @@ workspace (ProjectName)
 project (ProjectName)
 
     targetname "expall"
-    kind       "ConsoleApp"
-    language   "C"
+    
+    filter "configurations:Debug"
+        kind "ConsoleApp"
+    filter {}
+
+    filter "configurations:Release"
+        kind "WindowedApp"   
+    filter {}
+    
+    language   "C++"
+    cppdialect "C++20"
     targetdir  "$(SolutionDir)bin/$(Configuration)-$(Platform)/$(ProjectName)"
     objdir     "!$(SolutionDir)bin-int/$(Configuration)-$(Platform)/$(ProjectName)"
     location   (ProjectDir)
@@ -35,4 +45,4 @@ project (ProjectName)
     libdirs     "$(SolutionDir)/_Raylib/lib"
     links       { "raylib", "winmm" }
 
-    files { "src/*.c", "src/*.h" }
+    files { "src/*.c", "src/*.cpp", "src/*.h" }
