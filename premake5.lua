@@ -1,4 +1,4 @@
-local ProjectName = "ExpAll"
+local ProjectName = "Chorium"
 local SolutionDir = "./"
 local ProjectDir = SolutionDir .. "src"
 
@@ -25,7 +25,7 @@ workspace (ProjectName)
 
 project (ProjectName)
 
-    targetname "expall"
+    targetname "chorium"
     
     filter "configurations:Debug"
         kind "ConsoleApp"
