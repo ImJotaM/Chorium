@@ -135,13 +135,10 @@ public:
 		scroll_offset = 0;
 	}
 
-<<<<<<< HEAD
 	void SetCommandInput(const std::string& newCommandInput) {
 		command_input = newCommandInput;
 	}
 
-=======
->>>>>>> 53b49d28a15f9bb761a4b4c185345086d3196a2a
 private:
 
 	int viewport_width = 0;
@@ -260,15 +257,11 @@ public:
 		SetConfigFlags(FLAG_WINDOW_HIDDEN);
 		InitWindow(window_width, window_height, AppName);
 
-<<<<<<< HEAD
 		window_width  = GetMonitorWidth(GetCurrentMonitor())  * 3 / 5;
 		window_height = GetMonitorHeight(GetCurrentMonitor()) * 3 / 5;
 		fps = GetMonitorRefreshRate(GetCurrentMonitor());
 
 		renderer.SetViewPort(window_width, window_height);
-=======
-		renderer.SetViewPort(800, 600);
->>>>>>> 53b49d28a15f9bb761a4b4c185345086d3196a2a
 		renderer.SetFont(fontsDir / fontName);
 
 		SetWindowSize(window_width, window_height);
@@ -293,7 +286,6 @@ public:
 
 			renderer.SetScrollMove(GetMouseWheelMove());
 
-<<<<<<< HEAD
 			if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_E)) {
 				command_mode = !command_mode;
 				command_input.clear();
@@ -323,8 +315,6 @@ public:
 
 			}
 
-=======
->>>>>>> 53b49d28a15f9bb761a4b4c185345086d3196a2a
 			for (size_t i = 2; i < renderer.GetBufferSize(); ++i) {
 
 				if (CheckCollisionPointRec(mousePos, renderer.GetLineRect(i))) {
@@ -333,7 +323,6 @@ public:
 
 					if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
 
-<<<<<<< HEAD
 						fs::path newPath = fileExplorer.GetCurrentDir() / renderer.GetLineText(i);
 
 						if (fs::is_directory(newPath)) {
@@ -341,13 +330,6 @@ public:
 							renderer.SetBuffer(fileExplorer.GetDirFiles());
 						} else {
 							fileExplorer.OpenFile(newPath);
-=======
-						if (fs::is_directory(fileExplorer.GetCurrentDir() / renderer.GetLineText(i))) {
-							fileExplorer.ChangeDir(fileExplorer.GetCurrentDir() / renderer.GetLineText(i));
-							renderer.SetBuffer(fileExplorer.GetDirFiles());
-						} else {
-							fileExplorer.OpenFile(fileExplorer.GetCurrentDir() / renderer.GetLineText(i));
->>>>>>> 53b49d28a15f9bb761a4b4c185345086d3196a2a
 						}
 
 						renderer.ResetScroll();
@@ -363,13 +345,9 @@ public:
 
 			ClearBackground({ 16, 16, 16, 255 });
 			renderer.RenderBuffer();
-<<<<<<< HEAD
 			if (command_mode) {
 				renderer.RenderCommandParser();
 			}
-=======
-			renderer.RenderCommandParser();
->>>>>>> 53b49d28a15f9bb761a4b4c185345086d3196a2a
 
 			EndDrawing();
 		}
