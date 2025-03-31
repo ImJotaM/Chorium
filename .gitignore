@@ -1,0 +1,16 @@
+# Rejects binaries
+\bin
+\bin-int
+\_Chorium
+
+# Rejects solution files
+*.vcxproj
+*.sln
+
+# Rejects user files
+*.filters
+*.user
+
+# Rejects VS 2022 and VS Code directories
+\.vs
+\.vscode
